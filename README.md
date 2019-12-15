@@ -7,7 +7,7 @@ API for dito challenger
 
 ## IDE, technologies and tools                  
   - IDE: IntelliJ IDEA
-  - Spring boot and Thymeleaf
+  - Spring boot
   - Postman was used for testing
   
 ## Running
