@@ -2,7 +2,7 @@
 API for dito challenger
 
 ## Rest API - endpoint
-  POST method to sort the timeline: http://localhost:8080/autocompleteAPI/addEvent
+  POST method to sort the timeline: http://localhost:8080/timeline
 
 
 ## IDE, technologies and tools                  
