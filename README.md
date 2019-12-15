@@ -2,7 +2,7 @@
 API for dito challenger
 
 ## Rest API - endpoint
-  POST method to sort the timeline: http://localhost:8080/timeline
+  POST method to get the timeline: http://localhost:8080/timeline
 
 
 ## IDE, technologies and tools                  
@@ -13,7 +13,7 @@ API for dito challenger
 ## Running
   You can run this application from your IDE as a simple Java application or you can execute it by running the following command on target directory after maven install:
   
-    $ java -jar target/APIcoletora-0.0.1-SNAPSHOT.jar
+    $ java -jar target/shoppingTimeline-0.0.1-SNAPSHOT.jar
   
   
 
