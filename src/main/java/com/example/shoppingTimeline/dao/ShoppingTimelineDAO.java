@@ -11,27 +11,16 @@ import java.util.List;
 @Service
 public class ShoppingTimelineDAO{
 
-    private final List<EventComprou> eventComprouList = new ArrayList<EventComprou>();
-    private final List<EventComprouProduto> eventComprouProdutoList = new ArrayList<EventComprouProduto>();
-    private final List<Timeline> timelineList = new ArrayList<Timeline>();
-    private final ShoppingTimeline shoppingTimeline = new ShoppingTimeline();
-
-    private final Gson gson = new Gson();
-
     public ShoppingTimeline getShoppingTimeline(Events events) {
 
+        Gson gson = new Gson();
+
         List<Event> eventList = events.getEvents();
+        List<EventComprou> eventComprouList = new ArrayList<EventComprou>();
+        List<EventComprouProduto> eventComprouProdutoList = new ArrayList<EventComprouProduto>();
+        List<Timeline> timelineList = new ArrayList<Timeline>();
+        ShoppingTimeline shoppingTimeline = new ShoppingTimeline();
 
-        addComprouAndComprouProdutoLists(eventList);
-        addTimelines();
-
-        Collections.sort(timelineList, new SortTimeline());
-        shoppingTimeline.setItems(timelineList);
-
-        return shoppingTimeline;
-    }
-
-    private void addComprouAndComprouProdutoLists(List<Event> eventList) {
         for (Event event : eventList) {
             if(event.getEvent().equals("comprou")) {
                 String eventComprouJson = gson.toJson(event, Event.class);
@@ -41,9 +30,7 @@ public class ShoppingTimelineDAO{
                 eventComprouProdutoList.add(gson.fromJson(eventComprouProdutoJson, EventComprouProduto.class));
             }
         }
-    }
 
-    private void addTimelines() {
         for (EventComprou eventcomprou : eventComprouList) {
             Timeline timeline = new Timeline();
             timeline.setTimestamp(eventcomprou.getTimestamp());
@@ -56,6 +43,11 @@ public class ShoppingTimelineDAO{
 
             timelineList.add(timeline);
         }
+
+        Collections.sort(timelineList, new SortTimeline());
+        shoppingTimeline.setItems(timelineList);
+
+        return shoppingTimeline;
     }
 
     private List<Product> getEventComprouProducts(List<EventComprouProduto> eventComprouProdutoList, String comprouTransaction_id) {

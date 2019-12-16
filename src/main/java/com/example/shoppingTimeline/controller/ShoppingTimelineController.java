@@ -4,9 +4,8 @@ import com.example.shoppingTimeline.dao.ShoppingTimelineDAO;
 import com.example.shoppingTimeline.model.Events;
 import com.example.shoppingTimeline.model.ShoppingTimeline;
 import com.google.gson.Gson;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,7 +21,7 @@ public class ShoppingTimelineController {
         this.shoppingTimelineDAO = shoppingTimelineDAO;
     }
 
-    @PostMapping()
+    @GetMapping
     public ShoppingTimeline getTimeline() {
         ShoppingTimeline shoppingTimeline = new ShoppingTimeline();
         try {
