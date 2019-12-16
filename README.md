@@ -2,8 +2,7 @@
 API for dito challenger
 
 ## Rest API - endpoint
-  POST method to get the timeline: http://localhost:8080/timeline
-
+  GET method to get the timeline: http://localhost:8080/timeline
 
 ## IDE, technologies and tools                  
   - IDE: IntelliJ IDEA
